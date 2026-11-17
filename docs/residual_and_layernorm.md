@@ -209,4 +209,4 @@ nn.LayerNorm(8, eps=1e-6)(x)
 6. **`eps` 写在根号里，取 1e-5~1e-6**：管 nan，也管梯度爆炸（实测 1.49e6 → 8.50e2）。
 
 > 相关笔记：[module_ownership.md](./module_ownership.md)、[torch_vs_python.md](./torch_vs_python.md)（形状/广播类基础）。
-> 对应代码：[transformerBlock.py](../transformerBlock.py)、[do_LayerNorm.py](../do_LayerNorm.py)、[do_ffn.py](../do_ffn.py)。
+> 对应代码：[transformerBlock.py](../transformm/transformerBlock.py)、[do_LayerNorm.py](../transformm/do_LayerNorm.py)、[do_ffn.py](../transformm/do_ffn.py)。

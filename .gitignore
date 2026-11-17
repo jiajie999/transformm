@@ -6,3 +6,8 @@ __pycache__/
 
 checkpoints/
 *.pt
+
+# 打包产物
+*.egg-info/
+build/
+dist/

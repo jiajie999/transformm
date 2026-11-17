@@ -20,7 +20,7 @@
 import os
 import sys
 
-# 直接 python xxx.py 时 sys.path[0] 是本目录，`from transformm import` 会失败；把父目录加进来。
+# 直接 python transformm/xxx.py 时 sys.path[0] 是包目录，`from transformm import` 会失败；把仓库根目录加进来。
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import argparse
@@ -37,10 +37,10 @@ from transformm.do_tokenize import decode, encode
 from transformm.main import MiniGPT
 
 # 语料：460KB 英文销售教材，约 11 万 token（cl100k_base）
-DATA_PATH = Path(__file__).resolve().parents[0] / "data" / "sales_textbook.txt"
+DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "sales_textbook.txt"
 IGNORE_INDEX = pad_token          # pad 位置不参与 loss（本题语料无 pad，留着备用）
 
-CKPT_DIR = Path(__file__).resolve().parent / "checkpoints"
+CKPT_DIR = Path(__file__).resolve().parents[1] / "checkpoints"
 DEFAULT_CKPT = CKPT_DIR / "last.pt"
 
 

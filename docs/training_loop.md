@@ -1,6 +1,6 @@
 # 训练循环：一条样本是「错位一位」的序列
 
-> 起因：给 MiniGPT 加了 [train.py](../train.py)，300 步把 loss 从 11.5 降到 6.66。
+> 起因：给 MiniGPT 加了 [train.py](../transformm/train.py)，300 步把 loss 从 11.5 降到 6.66。
 > 结论：自回归训练只有两个必须做对的动作 —— **标签右移一位**、**注意力开因果 mask**。
 > 其余（lr、clip、batch）都是调参；这两个错了则不报错、loss 照降、模型学废。
 
@@ -218,4 +218,4 @@ logits = model(x)                          # 只应使用 logits[:, -1, :]
 > 相关笔记：[causal_mask.md](./causal_mask.md)、[module_ownership.md](./module_ownership.md)（参数归属决定是否可训练）、
 > [tokenizer_whitespace.md](./tokenizer_whitespace.md)（训练/推理预处理必须一致）、
 > [checkpoint.md](./checkpoint.md)（训完怎么存、下次怎么接着跑）。
-> 对应代码：[train.py](../train.py)、[generate.py](../generate.py)、[main.py](../main.py)、[`transformm/__init__.py`](../__init__.py)（超参集中管理）。
+> 对应代码：[train.py](../transformm/train.py)、[generate.py](../transformm/generate.py)、[main.py](../transformm/main.py)、[`transformm/__init__.py`](../transformm/__init__.py)（超参集中管理）。

@@ -194,4 +194,4 @@ attn.sum(-1)
 > 相关笔记：[training_loop.md](./training_loop.md)（mask 之后怎么把它训练起来）、
 > [module_ownership.md](./module_ownership.md)（buffer 与参数的区别）、
 > [torch_vs_python.md](./torch_vs_python.md)（`@`、transpose、softmax 轴）。
-> 对应代码：[do_attention.py](../do_attention.py)、[transformerBlock.py](../transformerBlock.py)、[main.py](../main.py)。
+> 对应代码：[do_attention.py](../transformm/do_attention.py)、[transformerBlock.py](../transformm/transformerBlock.py)、[main.py](../transformm/main.py)。

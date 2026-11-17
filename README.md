@@ -6,33 +6,35 @@
 ## 结构
 
 ```
-__init__.py          全局超参（d_model / max_len / vocab_size / dropout / eps）
-do_tokenize.py       cl100k_base 编解码
-do_embedding.py      token → embedding
-do_pos_encoding.py   正弦位置编码（buffer）
-do_attention.py      单头 / 多头注意力（含因果 mask）
-do_ffn.py            逐位置 FFN
-do_LayerNorm.py      手写 LayerNorm
-transformerBlock.py  Pre-LN + 两次残差
-main.py              MiniGPT 组装 + 形状/因果性自测
-train.py             next-token 训练 + checkpoint + 采样
-generate.py          加载 checkpoint 续写
-data/                训练语料（纯文本）
-docs/                学习笔记
-checkpoints/         训练产物（*.pt 已 gitignore）
+transformm/                包，所有代码在这里
+  __init__.py              全局超参（d_model / max_len / vocab_size / dropout / eps）
+  do_tokenize.py           cl100k_base 编解码
+  do_embedding.py          token → embedding
+  do_pos_encoding.py       正弦位置编码（buffer）
+  do_attention.py          单头 / 多头注意力（含因果 mask）
+  do_ffn.py                逐位置 FFN
+  do_LayerNorm.py          手写 LayerNorm
+  transformerBlock.py      Pre-LN + 两次残差
+  main.py                  MiniGPT 组装 + 形状/因果性自测
+  train.py                 next-token 训练 + checkpoint + 采样
+  generate.py              加载 checkpoint 续写
+data/                      训练语料（纯文本）
+docs/                      学习笔记
+checkpoints/               训练产物（*.pt 已 gitignore）
+pyproject.toml             打包配置（可选 pip install -e .）
 ```
 
 ## 快速开始
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt   # 或 pip install -e . 装成本地包
 
-python main.py       # 前向演示 + 自测
-python train.py      # 训练（默认 300 步）
-python generate.py --prompt "Customers buy from" --tokens 80
+python -m transformm.main          # 前向演示 + 自测
+python -m transformm.train         # 训练（默认 300 步）
+python -m transformm.generate --prompt "Customers buy from" --tokens 80
 ```
 
-也可以按包的方式跑（效果一样）：`python -m transformm.train`，此时需要在仓库的父目录执行。
+在仓库根目录执行（不带 `-m` 直接跑 `python transformm/main.py` 也可以）。
 
 ## 文档
 

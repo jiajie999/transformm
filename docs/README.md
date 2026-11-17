@@ -25,17 +25,17 @@
 
 | 文件 | 职责 |
 |------|------|
-| [`__init__.py`](../__init__.py) | 全局超参（d_model / max_len / vocab_size / dropout / eps） |
-| [do_tokenize.py](../do_tokenize.py) | cl100k_base 编解码 |
-| [do_embedding.py](../do_embedding.py) | 文本 → token → embedding（demo 用，表是临时的） |
-| [do_pos_encoding.py](../do_pos_encoding.py) | `pos_encode()` 纯函数 + `PositionalEncoding`（buffer） |
-| [do_attention.py](../do_attention.py) | 单头 `Attention`、多头 `MultiHeadAttention`（含因果 mask） |
-| [do_ffn.py](../do_ffn.py) | 逐位置 FFN（升维 ×4 → ReLU → 降维） |
-| [do_LayerNorm.py](../do_LayerNorm.py) | 自己实现的 LayerNorm |
-| [transformerBlock.py](../transformerBlock.py) | Pre-LN + 两次残差 |
-| [main.py](../main.py) | `MiniGPT` 组装 + 前向形状/因果性自测 |
-| [train.py](../train.py) | next-token 训练循环 + checkpoint 存取 + 采样生成 |
-| [generate.py](../generate.py) | 加载 checkpoint 直接续写（不重新训练） |
+| [`__init__.py`](../transformm/__init__.py) | 全局超参（d_model / max_len / vocab_size / dropout / eps） |
+| [do_tokenize.py](../transformm/do_tokenize.py) | cl100k_base 编解码 |
+| [do_embedding.py](../transformm/do_embedding.py) | 文本 → token → embedding（demo 用，表是临时的） |
+| [do_pos_encoding.py](../transformm/do_pos_encoding.py) | `pos_encode()` 纯函数 + `PositionalEncoding`（buffer） |
+| [do_attention.py](../transformm/do_attention.py) | 单头 `Attention`、多头 `MultiHeadAttention`（含因果 mask） |
+| [do_ffn.py](../transformm/do_ffn.py) | 逐位置 FFN（升维 ×4 → ReLU → 降维） |
+| [do_LayerNorm.py](../transformm/do_LayerNorm.py) | 自己实现的 LayerNorm |
+| [transformerBlock.py](../transformm/transformerBlock.py) | Pre-LN + 两次残差 |
+| [main.py](../transformm/main.py) | `MiniGPT` 组装 + 前向形状/因果性自测 |
+| [train.py](../transformm/train.py) | next-token 训练循环 + checkpoint 存取 + 采样生成 |
+| [generate.py](../transformm/generate.py) | 加载 checkpoint 直接续写（不重新训练） |
 | [checkpoints/](../checkpoints/) | 训练产物（`last.pt`，已 gitignore） |
 
 ## 还没写的

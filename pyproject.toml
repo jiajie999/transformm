@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transformm"
+version = "0.1.0"
+description = "从零手写 mini GPT，逐组件拆解 + 实测数字验证"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["torch>=2.0", "tiktoken>=0.5"]
+
+[tool.setuptools.packages.find]
+include = ["transformm*"]

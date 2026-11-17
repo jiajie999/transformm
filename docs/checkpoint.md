@@ -197,14 +197,14 @@ for group in optimizer.param_groups:
 ## 7. 日常用法
 
 ```bash
-# 训练：每 100 步 + 结束时各存一次，默认落到 transformm/checkpoints/last.pt
+# 训练：每 100 步 + 结束时各存一次，默认落到 checkpoints/last.pt
 python -m transformm.train
 
 # 中途被打断 / 想多训 200 步
 python -m transformm.train --resume --steps 500
 
 # 换个文件名，保留旧结果（--ckpt 是存与续训共用的路径）
-python -m transformm.train --steps 600 --ckpt transformm/checkpoints/run2.pt
+python -m transformm.train --steps 600 --ckpt checkpoints/run2.pt
 
 # 加载权重直接续写，不读语料、不建优化器
 python -m transformm.generate --prompt "Customers buy from" --tokens 80
@@ -213,7 +213,7 @@ python -m transformm.generate --prompt "Customers buy from" --tokens 80
 生成脚本的输出（300 步模型）：
 
 ```
-checkpoint: transformm/checkpoints/last.pt
+checkpoint: checkpoints/last.pt
 step 300 | 参数量 1614528 | 保存时 loss {'train': 6.033, 'val': 6.521}
 采样: temperature=0.8 | top_k=50 | seed=0
 
@@ -256,4 +256,4 @@ torch.equal(torch.load(a)["model"]["embedding.weight"],
 
 > 相关笔记：[training_loop.md](./training_loop.md)（被 checkpoint 保存的那个循环）、
 > [module_ownership.md](./module_ownership.md)（`state_dict` 里为什么是 149 个 key）。
-> 对应代码：[train.py](../train.py)、[generate.py](../generate.py)、[../checkpoints/](../checkpoints/)。
+> 对应代码：[train.py](../transformm/train.py)、[generate.py](../transformm/generate.py)、[../checkpoints/](../checkpoints/)。

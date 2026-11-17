@@ -175,7 +175,7 @@ x = self.pos_encoding(x)           # PositionalEncoding：只做加法
 ```
 
 这次改动走了个来回：先按"复用 helper"把 embedding 挪出去（参数量掉一半），
-发现训练/复现全废，再改回来。留下的判据是 [train.py](../train.py) 能被
+发现训练/复现全废，再改回来。留下的判据是 [train.py](../transformm/train.py) 能被
 `optimizer = AdamW(model.parameters())` 完整覆盖，且反向传播能走到每一个参数：
 
 ```python
@@ -216,4 +216,4 @@ torch.equal(model(ids), model(ids))
 > 相关笔记：[causal_mask.md](./causal_mask.md)（`persistent=False` 的 buffer）、
 > [training_loop.md](./training_loop.md)（参数归属直接决定训练能不能跑）、
 > [tokenizer_whitespace.md](./tokenizer_whitespace.md)（`do_embedding.py` 里那张表为什么每次都不一样）。
-> 对应代码：[main.py](../main.py)、[do_pos_encoding.py](../do_pos_encoding.py)、[do_embedding.py](../do_embedding.py)。
+> 对应代码：[main.py](../transformm/main.py)、[do_pos_encoding.py](../transformm/do_pos_encoding.py)、[do_embedding.py](../transformm/do_embedding.py)。

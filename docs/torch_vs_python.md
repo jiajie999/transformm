@@ -647,7 +647,7 @@ torch.stack([a, b], 1)   # 新建一维         [2,1] + [2,1] → [2,2,1]
 16. **原地改过参数就别拿旧输出反传**：`version error` 只在反传路径还需要那个张量时才报，改完重新前向一次。
 
 > 相关笔记：同一个单词（如 `cat`）在不同位置拿到不同 embedding 的问题，见 [tokenizer_whitespace.md](./tokenizer_whitespace.md)。
-> 第 7-16 节对应的代码：[../do_attention.py](../do_attention.py)、[../train.py](../train.py)、[../main.py](../main.py)。
+> 第 7-16 节对应的代码：[../do_attention.py](../transformm/do_attention.py)、[../train.py](../transformm/train.py)、[../main.py](../transformm/main.py)。
 >
 > 模型结构层面的坑（形状都对、数值/归属错）：
 > - 因果 mask 的顺序与 `diagonal`：[causal_mask.md](./causal_mask.md)
