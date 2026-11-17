@@ -7,6 +7,12 @@
 但不会被优化器更新。它的作用是注入"第几个 token"的信息——注意力本身对位置是无感的，
 打乱输入顺序，输出只会跟着一起打乱、数值不变。
 """
+import os
+import sys
+
+# 直接 python xxx.py 时 sys.path[0] 是本目录，`from transformm import` 会失败；把父目录加进来。
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import torch
 from torch import nn
 

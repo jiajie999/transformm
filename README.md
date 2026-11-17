@@ -27,11 +27,12 @@ checkpoints/         训练产物（*.pt 已 gitignore）
 ```bash
 pip install -r requirements.txt
 
-cd ..                       # 必须在仓库的父目录执行，包名是 transformm
-python -m transformm.main   # 前向演示 + 自测
-python -m transformm.train  # 训练（默认 300 步）
-python -m transformm.generate --prompt "Customers buy from" --tokens 80
+python main.py       # 前向演示 + 自测
+python train.py      # 训练（默认 300 步）
+python generate.py --prompt "Customers buy from" --tokens 80
 ```
+
+也可以按包的方式跑（效果一样）：`python -m transformm.train`，此时需要在仓库的父目录执行。
 
 ## 文档
 

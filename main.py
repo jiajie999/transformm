@@ -11,6 +11,12 @@
 注意：forward 默认 is_causal=True，每个位置只能看到自己和左边的 token（GPT 的做法）。
 真正训练请看 train.py；这里只做前向形状/流程演示。
 """
+import os
+import sys
+
+# 直接 python xxx.py 时 sys.path[0] 是本目录，`from transformm import` 会失败；把父目录加进来。
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import torch
 from torch import nn
 

@@ -13,6 +13,12 @@
 - MultiHeadAttention：把 d_model 切成 num_heads 份并行计算，再 concat 回来过一层 W_o。
 """
 
+import os
+import sys
+
+# 直接 python xxx.py 时 sys.path[0] 是本目录，`from transformm import` 会失败；把父目录加进来。
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import torch
 import torch.nn.functional as F
 import torch.nn as nn

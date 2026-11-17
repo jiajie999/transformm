@@ -17,6 +17,12 @@
     python -m transformm.train --resume             # 从上次 checkpoint 续训（含优化器状态与 RNG）
     python -m transformm.generate                   # 加载 checkpoint 直接续写，不重新训练
 """
+import os
+import sys
+
+# 直接 python xxx.py 时 sys.path[0] 是本目录，`from transformm import` 会失败；把父目录加进来。
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import argparse
 import math
 import time
