@@ -49,3 +49,7 @@ python -m transformm.generate --prompt "Customers buy from" --tokens 80
 
 d_model 128 / 4 头 / 2 层 / block_size 32 / 1.6M 参数，CPU 约 42 秒跑 300 步，
 loss 从 `ln(V)=11.516`（乱猜基线）降到 ~6.5。
+
+## License
+
+[MIT](./LICENSE)
